@@ -15,8 +15,8 @@ public class A03 {
         };              
 
         // Test countOf
-        System.out.println(countOf(78, june)); // expect 2
-        System.out.println(countOf(-78, june)); // expect 0
+        System.out.println(countOf(june, 78)); // expect 2
+        System.out.println(countOf(june, -78)); // expect 0
 
         // Test find max/min
         System.out.println(findMax(july)); // expect 90
@@ -36,6 +36,11 @@ public class A03 {
      */
     public static int countOf(int[] array, int target) {
         int count = 0;
+        for (int num : array) {
+            if (num == target) {
+                count++;
+            }
+        }
         return count;
     } // method countOf
 
@@ -46,6 +51,11 @@ public class A03 {
      */
     public static int findMax(int[] array) {
         int max = array[0];
+        for (int num : array) {
+            if (num > max) {
+                max = num;
+            }
+        }
         return max;
     } // method findMax
 
@@ -56,6 +66,11 @@ public class A03 {
      */
     public static int findMin(int[] array) {
         int min = array[0];
+        for (int num : array) {
+            if (num < min) {
+                min = num; 
+            }
+        }
         return min;
     } // method findMin
 
@@ -66,8 +81,12 @@ public class A03 {
      * @return true if target value is found in array, false otherwise
      */
     public static boolean isPresent(int target, int[] array) {
-        boolean found = false;
-        return found;
+        for (int num : array) {
+            if (num == target) {
+                return true; 
+            }
+        }
+        return false; 
     } // method contains
 
     /**
@@ -78,7 +97,13 @@ public class A03 {
      * @return true if there is a common value in the two arrays; false otherwise
      */
     public static boolean intersect(int[] array1, int[] array2) {
-        boolean intersection = false;
-        return intersection;
+        for (int num1 : array1) {
+            for (int num2 : array2) {
+                if (num1 == num2) {
+                    return true; 
+                }
+            }
+        }
+        return false; 
     } // method intersects
 }
